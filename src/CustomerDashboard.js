@@ -11,27 +11,27 @@ import './App.css';
 export function Customer() {
   const [searchQuery, setSearchQuery] = useState('');
   
-  // Dummy data representing different sections of the website
+  // Dummydata 
   const websiteContent = [
     {
-      title: 'Home',
-      content: 'Welcome to our website! This is the home page content.'
+      title: 'Local 1',
+      content: 'Welcome'
     },
     {
-      title: 'About',
-      content: 'Learn more about us and our mission.'
+      title: 'Local 2',
+      content: 'welcome2'
     },
     {
-      title: 'Portfolio',
-      content: 'Explore our portfolio showcasing our work.'
+      title: 'local3',
+      content: 'welcome3'
     },
     {
-      title: 'Contact',
-      content: 'Get in touch with us for inquiries or feedback.'
+      title: 'lcoal4',
+      content: 'welcome4'
     },
     {
-      title: 'Feedback',
-      content: 'Leave us your feedback and suggestions.'
+      title: 'local5',
+      content: 'welcome5'
     }
   ];
 
