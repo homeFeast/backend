@@ -11,28 +11,34 @@ const SignUpPage = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const email = event.target.elements.email.value;
-    const password = event.target.elements.password.value;
-    const role = event.target.elements.role.value;
-
-    if (!email || password.length < 6 || !role) {
-      setError("Please fill all fields correctly.");
+    const { email, password, role, phoneNumber, address } = event.target.elements;
+    
+    if (!email.value || password.value.length < 6 || !role.value) {
+      setError("Please fill all fields correctly and ensure the password is at least 6 characters long.");
       return;
     }
 
     try {
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const userCredential = await createUserWithEmailAndPassword(auth, email.value, password.value);
       const user = userCredential.user;
       
-      // Store the user's UID, email, and role in Firestore
       await setDoc(doc(db, "users", user.uid), {
-        email: email, // User's email
-        role: role, // User's selected role
+        email: email.value,
+        role: role.value,
+        address: address.value,
+        number: phoneNumber.value,
       });
       
-      console.log("User registered successfully with role:", role);
-      navigate("/dashboard"); // Adjust as needed for your application's routes
+      console.log("User registered successfully with role:", role.value);
+      if (role.value === "customer") {
+        navigate("/customer-dashboard");
+      } else if (role.value === "seller") {
+        navigate("/seller-dashboard");
+      } else if (role.value === "delivery") {
+        navigate("/delivery-dashboard");
+      }
     } catch (error) {
+      console.error("Error signing up:", error);
       setError(error.message);
     }
   };
@@ -43,7 +49,10 @@ const SignUpPage = () => {
       <form onSubmit={handleSubmit} className="auth-form">
         {error && <p style={{ color: 'red' }}>{error}</p>}
         <input name="email" type="email" placeholder="Email" required />
-        <input name="password" type="password" placeholder="Password" required />
+        <input name="password" type="password" placeholder="Password" required minLength="6" />
+        
+        <input name="address" type="text" placeholder="Delivery Address" required />
+        <input name="phoneNumber" type="number" placeholder="Phone Number" required />
         <select name="role" required defaultValue="">
           <option value="" disabled>Select Role</option>
           <option value="seller">Seller</option>
