@@ -7,6 +7,8 @@ import SignUpPage from './SignUpPage';
 import SellerDashboard from './SellerDashboard';
 import CustomerDashboard from './CustomerDashboard';
 import DeliveryDashboard from './DeliveryDashboard';
+import { SellerTemplate } from './SellerTemplate';
+
 
 function App() {
   return (
@@ -20,6 +22,7 @@ function App() {
           <Route path="/seller-dashboard" element={<SellerDashboard />} />
           <Route path="/customer-dashboard" element={<CustomerDashboard />} />
           <Route path="/delivery-dashboard" element={<DeliveryDashboard />} />
+          <Route path="/seller-template" element={<SellerTemplate/>}/>
         </Routes>
       </Router>
     </AuthProvider>

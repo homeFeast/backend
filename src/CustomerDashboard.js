@@ -3,35 +3,35 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
-import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 
-export function Customer() {
+export function CustomerDashboard() {
   const [searchQuery, setSearchQuery] = useState('');
   
-  // Dummydata 
+  // Dummy data representing different sections of the website
   const websiteContent = [
     {
-      title: 'Local 1',
-      content: 'Welcome'
+      title: 'Home',
+      content: 'Welcome to our website! This is the home page content.'
     },
     {
-      title: 'Local 2',
-      content: 'welcome2'
+      title: 'About',
+      content: 'Learn more about us and our mission.'
     },
     {
-      title: 'local3',
-      content: 'welcome3'
+      title: 'Portfolio',
+      content: 'Explore our portfolio showcasing our work.'
     },
     {
-      title: 'lcoal4',
-      content: 'welcome4'
+      title: 'Contact',
+      content: 'Get in touch with us for inquiries or feedback.'
     },
     {
-      title: 'local5',
-      content: 'welcome5'
+      title: 'Feedback',
+      content: 'Leave us your feedback and suggestions.'
     }
   ];
 
@@ -45,30 +45,21 @@ export function Customer() {
     <div>
       <Navbar expand="lg" className="bg-body-tertiary topnav">
         <Container fluid>
-          <Navbar.Brand href="#">Home Feast</Navbar.Brand>
-          <Navbar.Toggle aria-controls="navbarScroll" />
-          <Navbar.Collapse id="navbarScroll">
-            <Nav
-              className="me-auto my-2 my-lg-0 justify-content-center"
-              style={{ maxHeight: '100px' }}
-              navbarScroll
-            >
-              <Nav.Link href="#action1">Regular</Nav.Link>
-              <Nav.Link href="#action2">Mess</Nav.Link>
-            </Nav>
+            <Navbar.Brand href="#">Home Feast</Navbar.Brand>
+            <Navbar.Toggle aria-controls="navbarScroll" />
             <Form className="d-flex">
-              <Form.Control
-                type="search"
-                placeholder="Search"
-                className="me-2"
-                aria-label="Search"
-                value={searchQuery}
-                onChange={e => setSearchQuery(e.target.value)}
-              />
-              <Button variant="outline-success">Search</Button>
-            </Form>
-          </Navbar.Collapse>
-        </Container>
+                <Form.Control
+                    type="search"
+                    placeholder="Search"
+                    className="me-2"
+                    aria-label="Search"
+                    value={searchQuery}
+                    onChange={e => setSearchQuery(e.target.value)}
+                />
+                <Button variant="outline-success">Search</Button>
+                </Form>
+            <a href=''><box-icon name='user' type='solid' color='#111'></box-icon></a>
+            </Container>
       </Navbar>
 
       <div className="sidebar">
@@ -76,8 +67,8 @@ export function Customer() {
           <header id="header">
             <nav id="navbar" className="nav-menu navbar">
               <ul>
-                <h4>veg</h4>
-                <h4>nonveg</h4>
+                <a href=''>veg</a>
+                <a href=''>nonveg</a>
               </ul>
             </nav>
           </header>
@@ -102,5 +93,4 @@ export function Customer() {
   );
 }
 
-export default Customer;
-
+export default CustomerDashboard;

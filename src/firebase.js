@@ -2,14 +2,16 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
 import { getStorage } from "firebase/storage";
+import { getDatabase } from "firebase/database"; // Import for Realtime Database
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBV6slsAp5C7iVTtznRyfcgeNU3rk4Nk_4",
-  authDomain: "homefeast-8b420.firebaseapp.com",
-  projectId: "homefeast-8b420",
-  storageBucket: "homefeast-8b420.appspot.com",
-  messagingSenderId: "179323017631",
-  appId: "1:179323017631:web:4e57fcddd065a79a94c5aa"
+  apiKey: "AIzaSyAKesrf-_1EIoAuJwnTwVNFIho2MLx8sag",
+  authDomain: "hack-aef97.firebaseapp.com",
+  projectId: "hack-aef97",
+  storageBucket: "hack-aef97.appspot.com",
+  messagingSenderId: "367239683946",
+  appId: "1:367239683946:web:b2720e15773de700a10f13",
+  measurementId: "G-K6GHZV5LX8"
 };
 
 // Initialize Firebase
@@ -25,5 +27,8 @@ const provider = new GoogleAuthProvider();
 // Initialize Firebase Storage
 const storage = getStorage(app);
 
+// Initialize Firebase Realtime Database
+const realtimedb = getDatabase(app);
+
 // Export the initialized services
-export { db, auth, provider, storage };
+export { db, auth, provider, storage, realtimedb };

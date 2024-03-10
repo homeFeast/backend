@@ -1,16 +1,21 @@
 import React, { useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
+// Remove duplicate individual imports, keep the destructured import from react-bootstrap
+import { Button, Card, Container, Form, Nav, Navbar } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom'; // Ensure this import is kept for navigation functionality
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 export function Seller() {
   const [searchQuery, setSearchQuery] = useState('');
-  
+
+  // Use useNavigate hook for navigation
+  const navigate = useNavigate();
+
+  // Function to handle navigation
+  const navigateToSellerTemplate = () => {
+    navigate('/seller-template');
+  };
+
   // Dummy data representing different sections of the website
   const websiteContent = [
     {
@@ -98,9 +103,12 @@ export function Seller() {
               </Card.Body>
             </Card>
           ))}
+          {/* Navigation Button to Seller Template */}
+          <Button variant="primary" onClick={navigateToSellerTemplate}>Go to Seller Template</Button>
         </div>
       </div>
     </div>
   );
 }
+
 export default Seller;
